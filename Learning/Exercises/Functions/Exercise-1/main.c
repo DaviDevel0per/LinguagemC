@@ -1,6 +1,10 @@
 #include <stdio.h>
 
-int main()
-{
-    printf("Teste\n");
+// Definindo Função
+void MostrarNome(void) {
+    printf("Davi Bento Jube\n");
+}
+
+void main() {
+    MostrarNome();
 }
