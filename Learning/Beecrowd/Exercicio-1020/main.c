@@ -2,18 +2,24 @@
 
 int main()
 {
-    int Entrada, Resto,
-        Horas, Minutos, Segundos;
+    int DiasEntrada,
+        Anos,
+        Meses,
+        Dias;
 
-    scanf("%d", &Entrada);
+    scanf("%d", &DiasEntrada);
 
-    Horas = Entrada / 3600;
-    Resto = Entrada % 3600;
+    Anos = DiasEntrada / 365;
+    Meses = (DiasEntrada % 365) / 30; // (DiasEntrada % 365) Representa os dias que restaram da divisao de dias por 365
+    Dias = (DiasEntrada % 365) % 30; // (DiasEntrada % 365) % 12 Resto de dias da divisao de dias por 12
 
-    printf("Resto: %d\n", Resto);
+    printf( "%d ano(s)\n"
+            "%d mes(es)\n"
+            "%d dia(s)\n",
+            Anos,
+            Meses,
+            Dias
+    );
 
-    Minutos = Resto / 60;
-    Segundos = Resto % 60;
-
-    printf("%d:%d:%d\n", Horas, Minutos, Segundos);
+    return 0;
 };
