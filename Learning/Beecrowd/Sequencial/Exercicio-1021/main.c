@@ -1,13 +1,13 @@
 #include <stdio.h>
 
 int main() {
-    float ValorMonetario;
+    double ValorMonetario, ValorMonetario2;
     int Notas[6], Moedas[6], Centavos, MonetarioInt, Resto;  // Notas e moedas decrescentes, 100, 50, 20...
 
     // Resto é usada como uma variável auxiliar, guardando o resto de todas as divisões
 
     // Lendo Valor Monetario
-    scanf("%f", &ValorMonetario);
+    scanf("%lf", &ValorMonetario);
 
     // Caso o valor seja alto demais ou negativo
     if (ValorMonetario <= 0 || ValorMonetario >= 1000000.0) return 0;
@@ -35,9 +35,11 @@ int main() {
     Notas[5] = Resto / 2;
     Resto = Resto % 2;
 
+    ValorMonetario2 = (ValorMonetario - MonetarioInt) + Resto;
+
     // Quantidade de Moedas
 
-    Centavos = Resto * 100;
+    Centavos = ValorMonetario2 * 100;
 
     Moedas[0] = Centavos / 100;
 
