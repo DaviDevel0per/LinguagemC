@@ -46,7 +46,7 @@ int main()
 
         printf("Digite o segundo número (1 a 99): ");
 
-        scanf("%d", &Numero2);
+        scanf("%d", &Numero2); 
 
         if (Numero2 > 99 || Numero2 < 1)
         {
@@ -67,9 +67,9 @@ int main()
             Numero1 = Numero2 - Numero1; // Transformando Numero1 em Numero2
             Numero2 = Numero2 - Numero1; // Transformando Numero2 em Numero1
         }
-
+        
         // Realizando as 4 operações
-
+        
         Soma = Numero1 + Numero2;
         Diferenca = Numero1 - Numero2;
         Produto = Numero1 * Numero2;
@@ -96,7 +96,7 @@ int main()
     }
 
     return 0;
-};
+}
 
 // Função de Cabeçalho
 void Cabecalho()
@@ -107,6 +107,4 @@ void Cabecalho()
 			"\nProfessor: Aníbal Vieira"
 			"\nAluno: Daví Bento Jubé\n\n"
 	);
-	
-	return;
-};
+}

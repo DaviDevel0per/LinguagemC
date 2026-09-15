@@ -65,10 +65,10 @@ int main()
 			scanf("%f", &Nota6);
 		
 		// Calculando N1, N2 e Media
-		N1 = (Nota1+Nota2+Nota3)/3;
-		N2 = (Nota4+Nota5+Nota6)/3;
+		N1 = (Nota1 + Nota2 + Nota3) / 3;
+		N2 = (Nota4 + Nota5 + Nota6) / 3;
 		
-		Media = N1*0.4+N2*0.6;
+		Media = N1 * 0.4 + N2 * 0.6;
 		
 		// Imprimindo Média
 		printf("\nA média do aluno %s é: %.1f \n", NomeDoAluno, Media);

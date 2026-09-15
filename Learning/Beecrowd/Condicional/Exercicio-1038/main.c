@@ -1,35 +1,26 @@
 #include <stdio.h>
 
-/*
-
-Você deve fazer um programa que leia um valor qualquer e apresente uma mensagem
-dizendo em qual dos seguintes intervalos ([0,25], (25,50], (50,75], (75,100])
-este valor se encontra. Obviamente se o valor não estiver em nenhum destes
-intervalos, deverá ser impressa a mensagem “Fora de intervalo”.
-
-O símbolo ( representa "maior que". Por exemplo:
-[0,25]  indica valores entre 0 e 25.0000, inclusive eles.
-(25,50] indica valores maiores que 25 Ex: 25.00001 até o valor 50.0000000
-
-Entrada
-O arquivo de entrada contém um número com ponto flutuante qualquer.
-
-Saída
-A saída deve ser uma mensagem conforme exemplo abaixo.
-
-*/
-
 int main() {
-    double Valor;
+    int Codigo, Quantidade;
+    double ValorTotal;
 
-    scanf("%lf", &Valor);
+    scanf("%d %d", &Codigo, &Quantidade);
 
-    if (Valor >= 0 && Valor <= 25) printf("Intervalo [0,25]\n");
-    else if (Valor > 25 && Valor <= 50) printf("Intervalo (25,50]\n");
-    else if (Valor > 50 && Valor <= 75) printf("Intervalo (50,75]\n");
-    else if (Valor > 75 && Valor <= 100) printf("Intervalo (75,100]\n");
-    else if (Valor < 0 || Valor > 100) printf("Fora de intervalo\n");
+    if (Codigo > 0 && Codigo < 6) {
+        if (Codigo == 1) {
+            ValorTotal = 4.0*Quantidade;
+        } else if (Codigo == 2) {
+            ValorTotal = 4.5*Quantidade;
+        } else if (Codigo == 3) {
+            ValorTotal = 5.0*Quantidade;
+        } else if (Codigo == 4) {
+            ValorTotal = 2.0*Quantidade;
+        } else if (Codigo == 5) {
+            ValorTotal = 1.5*Quantidade;
+        }
+    }
 
+    printf("Total: R$ %.2lf\n", ValorTotal);
 
     return 0;
 };
