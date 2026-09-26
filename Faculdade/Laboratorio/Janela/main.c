@@ -18,11 +18,12 @@ void LinhaVertical		 // Desenha linha Vertical
 
 void TextoJanela(); 	// Escreve os textos da janela
 
+int ValidarNumero(int Num, int Inf, int Sup, int x, int y);
+
 int main()
    { 
     int Opcao, Col, Lin, Colunas, Linhas;
 	char  Char;
-	
 	
     setlocale(LC_ALL, "");
     system("color F0");
@@ -38,34 +39,39 @@ int main()
 
         int CodProduto, QtdeProduto;
         double ValorProduto, LucroTotal, PrctgLucro;
-        char NomeProduto[120];
-
+        char NomeProduto[40];
+		
         gotoxy(10,7);
 		
-		printf("Digite o nome do produto...........[  ]");
+		printf("Digite o nome do produto...........[                            ]");
 		gotoxy(46, 7);
         scanf("%s", &NomeProduto);
 
         gotoxy(10,8);
 
-		printf("Digite o valor do produto..........[  ]");
+		printf("Digite o valor do produto..........[   ]");
 		gotoxy(46, 8);
         scanf("%lf", &ValorProduto);
-
-        gotoxy(10,9);
-
-        printf("Digite a quantidade do produto.....[  ]");
+		
+		gotoxy(10,9);
+		ValorProduto = ValidarNumero(ValorProduto, 1, 999, 46, 8);
+		
+        printf("Digite a quantidade do produto.....[   ]");
 		gotoxy(46, 9);
 
         scanf("%d", &QtdeProduto);
         gotoxy(10,10);
 
-        printf("Digite o código do produto.........[  ]");
+		QtdeProduto = ValidarNumero(QtdeProduto, 1, 999, 10, 10);
+
+        printf("Digite o código do produto.........[   ]");
 		gotoxy(46, 10);
 
         scanf("%d", &CodProduto);
 
         gotoxy(10, 14);
+		
+		CodProduto = ValidarNumero(CodProduto, 1, 999, 10, 14);
 
 		LucroTotal = ValorProduto * QtdeProduto;
 		PrctgLucro = LucroTotal * 0.2;
@@ -87,6 +93,21 @@ int main()
 	
 	} // Fim da main()
 		
+int ValidarNumero(int Num, int Inf, int Sup, int x, int y) {
+	while (Num < Inf || Num > Sup)
+	{	
+		printf("Valor inserido incorreto. Aperte Enter para tentar novamente.");
+
+		system("pause>null");
+		
+		printf("\33[1K");
+
+		gotoxy(x, y);
+		scanf("%d", &Num);
+	}
+
+	return Num;
+};
 
 void gotoxy(int x, int y) // (-, 8) -> Meio da tela de ENTRADA | (-, 17) -> Meio da tela de SAIDA
 	{
