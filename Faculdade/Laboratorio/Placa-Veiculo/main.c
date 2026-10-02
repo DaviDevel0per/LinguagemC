@@ -18,7 +18,7 @@ void LinhaVertical		 // Desenha linha Vertical
 
 void TextoJanela(); 	// Escreve os textos da janela
 
-int ValidarNumero(int Num, int Inf, int Sup, int x, int y);
+int ValidarNumero(int Num, int Inf, int Sup);
 
 int main()
    { 
@@ -37,50 +37,34 @@ int main()
 		
 	// Corpo do programa	
 
-        int CodProduto, QtdeProduto;
-        double ValorProduto, LucroTotal, PrctgLucro;
-        char NomeProduto[40];
-		
-        gotoxy(10,7);
-		
-		printf("Digite o nome do produto...........[                            ]");
-		gotoxy(46, 7);
-        scanf("%s", &NomeProduto);
+    int Placa;
+	int MesDePag;
+	char Meses[][12] = {
+		"Janeiro",
+		"Fevereiro",
+		"Março",
+		"Abril",
+		"Maio",
+		"Junho",
+		"Julho",
+		"Agosto",
+		"Setembro",
+		"Outubro",
+		"Novembro",
+		"Dezembro"
+	};
 
-        gotoxy(10,8);
+	gotoxy(10, 7);
+	printf("Digite os digitos da placa.........: ");
 
-		printf("Digite o valor do produto..........[   ]");
-		gotoxy(46, 8);
-        scanf("%lf", &ValorProduto);
-		
-		gotoxy(10,9);
-		ValorProduto = ValidarNumero(ValorProduto, 1, 999, 46, 8);
-		
-        printf("Digite a quantidade do produto.....[   ]");
-		gotoxy(46, 9);
+	scanf("%d", &Placa);
+	Placa = ValidarNumero(Placa, 0, 9999);
+	
+	MesDePag = ValidarNumero(Placa % 100, 0, 12);
+	
+	gotoxy(10, 16);
 
-        scanf("%d", &QtdeProduto);
-        gotoxy(10,10);
-
-		QtdeProduto = ValidarNumero(QtdeProduto, 1, 999, 10, 10);
-
-        printf("Digite o código do produto.........[   ]");
-		gotoxy(46, 10);
-
-        scanf("%d", &CodProduto);
-
-        gotoxy(10, 14);
-		
-		CodProduto = ValidarNumero(CodProduto, 1, 999, 10, 14);
-
-		LucroTotal = ValorProduto * QtdeProduto;
-		PrctgLucro = LucroTotal * 0.2;
-
-        printf("Lucro total........................[ %.2lf ]", LucroTotal);
-
-		gotoxy(10, 15);
-
-		printf("Porcentagem de Lucro...............[ %.2lf ]", PrctgLucro);
+	printf("O motorista deve pagar o IPVA no mês de %s", Meses[MesDePag - 1]);
     
     // Fim do programa
 		
@@ -93,14 +77,18 @@ int main()
 	
 	} // Fim da main()
 		
-int ValidarNumero(int Num, int Inf, int Sup, int x, int y) {
+int ValidarNumero(int Num, int Inf, int Sup) {
 	while (Num < Inf || Num > Sup)
 	{	
-		printf("Valor inserido incorreto. Aperte Enter para tentar novamente.");
+		gotoxy(47, 7);
+		printf("Valor inserido incorreto.");
 
 		system("pause>null");
 
-		gotoxy(x, y);
+		gotoxy(47, 7);
+		for (int i = 0; i < 25; i++) printf(" ");
+		gotoxy(47, 7);
+
 		scanf("%d", &Num);
 	}
 

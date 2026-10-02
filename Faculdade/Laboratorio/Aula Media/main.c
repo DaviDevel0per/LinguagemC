@@ -21,13 +21,18 @@ int main()
 	// Declarando Variáveis
 	double Numeros[5], Media;
 
+	Cabecalho();
+
 	for (int i = 0; i < 5; i++) {
+		printf("Digite o número %d: ", i);
 		scanf("%lf", Numeros[i]);
 
 		Media = Media + Numeros[i];
 	}
 		
 	Media = Media / 5;
+
+	printf("Media: ", Media);
 
 	return 0;
 };
