@@ -12,6 +12,7 @@ int main(void)
     // Maquina andar 2
     M2 = A1 * 2 + A3 * 2;
 
+
     // Maquina andar 3
     M3 = A2 * 2 + A1 * 4;
 

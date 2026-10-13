@@ -34,9 +34,6 @@ Passos:
 2. Descobrir o maior
 3. Descobrir triangulo
 
-
-
-
 */
 
 int main(void)
