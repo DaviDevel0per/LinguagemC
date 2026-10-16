@@ -17,13 +17,13 @@ int main() {
         }
 
         if (abs(valor) % 2 > 0)
-            printf("EVEN ");
-        else
             printf("ODD ");
+        else
+            printf("EVEN ");
 
         if (valor > 0)
-            printf("POSITIVE \n");
+            printf("POSITIVE\n");
         else
-            printf("NEGATIVE \n");
+            printf("NEGATIVE\n");
     }
 }
